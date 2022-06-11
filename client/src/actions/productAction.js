@@ -32,7 +32,7 @@ import {
 } from "../constants/productConstants";
 
 // Get All Products
-export const getProduct = () => {
+export const getProduct = () => async (dispatch) => {
     try {
       dispatch({ type: ALL_PRODUCT_REQUEST });
 
@@ -42,7 +42,7 @@ export const getProduct = () => {
       //   link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`;
       // }
 
-      const { data } = await axios.get(link);
+      const { data } = await axios.get("/api/v1/products");
 
       dispatch({
         type: ALL_PRODUCT_SUCCESS,
