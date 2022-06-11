@@ -1,5 +1,4 @@
 import React from 'react'
-import { useStateValue } from '../../StateProvider';
 import './Product.css'
 import ReactStars from "react-rating-stars-component";
 import { Link } from 'react-router-dom';

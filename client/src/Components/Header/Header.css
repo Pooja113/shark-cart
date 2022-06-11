@@ -56,3 +56,14 @@ span.logo__name {
   font-family: 'Dancing Script', cursive;
   align-items: center;
 }
+
+
+@media screen and (max-width:600px) {
+  .header{
+    flex-direction: column;
+  }
+  .header__nav{
+    gap: 1rem;
+    margin-bottom: 6px;
+  }
+}

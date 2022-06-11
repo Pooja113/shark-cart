@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { StateProvider } from './StateProvider';
-import reducer,{initialState} from './reducer'
+import { Provider } from 'react-redux';
+//import reducer,{initialState} from './reducer'
+import store from './store';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <StateProvider initialState={initialState} reducer={reducer}>
+  <Provider store={store}>
     <App />
-  </StateProvider>
+  </Provider>
 );
 
