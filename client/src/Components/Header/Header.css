@@ -1,5 +1,4 @@
 .header{
-  /* height:60px; */
   display: flex;
   position: sticky;
   align-items: center;
@@ -12,31 +11,20 @@
   width: 100px;
 }
 
-
-.header__serachInput{
-  height: 12px;
-  padding: 10px;
-  border: none;
-  width: 100%;
-}
-
 .header__nav{
   display: flex;
   justify-content: space-evenly;
   flex: 0.45;
 }
 
+.header__nav a{
+  text-decoration: none;
+}
+
 .header__option{
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
-  margin-right: 10px;
   color: white;
 }
 
-.header__optionLineOne{
-  font-size: 10px;
-}
 .header__optionLineTwo{
   font-size: 13px;
   font-weight: 800;
