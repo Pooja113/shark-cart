@@ -2,14 +2,19 @@ import React from 'react'
 import './Header.css'
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 // import { auth } from './firebase';
+import { logout } from "../../actions/userAction";
+
 
 const Header = () => {
-
+  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const handleAuthentication = () =>{
-    // if(user){
-    //   auth.signOut();
-    // }
+    if(isAuthenticated){
+      dispatch(logout());
+      alert.success("Logout Successfully");
+    }
   }
   return (
     <div className='header'>
@@ -21,7 +26,7 @@ const Header = () => {
       <div className='header__nav'>
         <Link to="/">
           <div className='header__option'>
-            <span className='header__optionLineTwo'>Hello Guest</span>
+            <img className='user__profilepic' src={user?.avatar?.url ? user?.avatar?.url : "/Profile.png"} alt="" />
           </div>
         </Link>
   
@@ -38,11 +43,12 @@ const Header = () => {
             </span>
           </div>
         </Link>
-        <Link to="/">
+        <Link to="/login">
         <div className='header__option' onClick={handleAuthentication}>
           <span className='header__optionLineTwo'>
             <span className='header__optionLineTwo'>
-              Sign In
+              {isAuthenticated ? "Log Out" : "Log In"}
+              
             </span>
           </span>
         </div>

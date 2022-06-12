@@ -14,7 +14,8 @@
 .header__nav{
   display: flex;
   justify-content: space-evenly;
-  flex: 0.45;
+  flex: 0.25;
+  align-items: center;
 }
 
 .header__nav a{
@@ -41,7 +42,7 @@
 }
 
 .logo {
-  flex: 0.45;
+  flex: 0.55;
   text-align: center;
 }
 
@@ -58,6 +59,12 @@ span.logo__name {
 }
 
 
+img.user__profilepic{
+  width: 3vmax;
+  border-radius: 25%;
+}
+
+
 @media screen and (max-width:600px) {
   .header{
     flex-direction: column;
@@ -66,4 +73,8 @@ span.logo__name {
     gap: 1rem;
     margin-bottom: 6px;
   }
+  img.user__profilepic{
+    width: 6vmax;
+  }
+  
 }

@@ -11,13 +11,13 @@ import { composeWithDevTools } from "redux-devtools-extension";
 //   reviewReducer,
  } from "./reducers/productReducer";
 
-// import {
+ import {
 //   allUsersReducer,
 //   forgotPasswordReducer,
 //   profileReducer,
 //   userDetailsReducer,
-//   userReducer,
-// } from "./reducers/userReducer";
+   userReducer,
+} from "./reducers/userReducer";
 
 // import { cartReducer } from "./reducers/cartReducer";
 // import {
@@ -31,7 +31,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 const reducer = combineReducers({
    products: productsReducer,
    productDetails: productDetailsReducer,
-  // user: userReducer,
+   user: userReducer,
   // profile: profileReducer,
   // forgotPassword: forgotPasswordReducer,
   // cart: cartReducer,
