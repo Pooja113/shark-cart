@@ -19,7 +19,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
    userReducer,
 } from "./reducers/userReducer";
 
-// import { cartReducer } from "./reducers/cartReducer";
+import { cartReducer } from "./reducers/cartReducer";
 // import {
 //   allOrdersReducer,
 //   myOrdersReducer,
@@ -34,7 +34,7 @@ const reducer = combineReducers({
    user: userReducer,
    profile: profileReducer,
    forgotPassword: forgotPasswordReducer,
-  // cart: cartReducer,
+   cart: cartReducer,
   // newOrder: newOrderReducer,
   // myOrders: myOrdersReducer,
   // orderDetails: orderDetailsReducer,

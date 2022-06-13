@@ -71,8 +71,8 @@ const LoginSignUp = ({ location }) => {
     }
   };
 
-  //const redirect = location.search ? location.search.split("=")[1] : "/account";
-
+  const redirect = window.location.href ? window.location.href.split("=")[1] : "/account";
+  console.log(window.location.href.split("=")[1])
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -80,9 +80,9 @@ const LoginSignUp = ({ location }) => {
     }
 
     if (isAuthenticated) {
-      navigate("/account");
+      navigate(redirect);
     }
-  }, [dispatch, error, alert, isAuthenticated,navigate]);
+  }, [dispatch, error, alert, isAuthenticated,navigate,redirect]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {

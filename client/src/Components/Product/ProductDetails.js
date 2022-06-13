@@ -12,7 +12,7 @@ import ReactStars from "react-rating-stars-component";
 import ReviewCard from "./ReviewCard.js";
 import Loader from "../Loader/Loader";
 import { useAlert } from "react-alert";
-//import { addItemsToCart } from "../../actions/cartAction";
+import { addItemsToCart } from "../../actions/cartAction";
 // import {
 //   Dialog,
 //   DialogActions,
@@ -51,22 +51,22 @@ const ProductDetails = ({ match }) => {
   // const [comment, setComment] = useState("");
 
    const increaseQuantity = () => {
-  //   if (product.Stock <= quantity) return;
+    if (product.Stock <= quantity) return;
 
-  //   const qty = quantity + 1;
-  //   setQuantity(qty);
+    const qty = quantity + 1;
+    setQuantity(qty);
    };
 
    const decreaseQuantity = () => {
-  //   if (1 >= quantity) return;
+    if (1 >= quantity) return;
 
-  //   const qty = quantity - 1;
-  //   setQuantity(qty);
+    const qty = quantity - 1;
+    setQuantity(qty);
    };
 
    const addToCartHandler = () => {
-  //   //dispatch(addItemsToCart(params.id, quantity));
-  //   alert.success("Item Added To Cart");
+    dispatch(addItemsToCart(params.id, quantity));
+    alert.success("Item Added To Cart");
    };
 
    const submitReviewToggle = () => {
@@ -105,7 +105,7 @@ const ProductDetails = ({ match }) => {
   const options = {
     edit:false,
     color:"rgba(20,20,20,0.1)",
-    activeColor:"tomato",
+    activeColor:"#00b3a8",
     size:window.innerWidth < 600 ? 20 : 25,
     value:product.ratings,
     isHalf:true

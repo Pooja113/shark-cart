@@ -8,12 +8,11 @@ import { logout } from "../../actions/userAction";
 
 const Header = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const handleAuthentication = () =>{
-    if(isAuthenticated){
       dispatch(logout());
       alert.success("Logout Successfully");
-    }
   }
   return (
     <div className='header'>
@@ -34,24 +33,17 @@ const Header = () => {
           <span className='header__optionLineTwo'>Orders</span>
         </div>
         </Link>
-        <Link to="/checkout">
+        <Link to="/cart">
           <div className='header__optionBasket'>
             <ShoppingBasketIcon />
             <span className='header__optionLoneTwo header__basketCount' >
-              0
+              {cartItems?.length ? cartItems?.length : "0" }
             </span>
           </div>
         </Link>
-        <Link to="/login">
-        <div className='header__option' onClick={handleAuthentication}>
-          <span className='header__optionLineTwo'>
-            <span className='header__optionLineTwo'>
-              {isAuthenticated ? "Log Out" : "Log In"}
-              
-            </span>
-          </span>
-        </div>
-      </Link>
+        {isAuthenticated ? (<div className='logout__button' onClick={handleAuthentication}>LOGOUT</div>) : (
+          <Link to="/login"><div className='login__button'>LOGIN</div></Link>
+          )}
       </div>
       
   </div>

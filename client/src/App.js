@@ -16,8 +16,8 @@ import UpdateProfile from './Components/User/UpdateProfile';
 import UpdatePassword from './Components/User/UpdatePassword';
 import ForgotPassword from './Components/User/ForgotPassword';
 import ResetPassword from './Components/User/ResetPassword';
-
-
+import Cart from './Components/Cart/Cart';
+import Shipping from './Components/Cart/Shipping';
 
 function App() {
   useEffect(() => {
@@ -35,6 +35,9 @@ function App() {
         <Route exact path="/password/update" element={ <React.Fragment><Header/><UpdatePassword />   </React.Fragment>}/>
         <Route exact path="/password/forgot" element={ <React.Fragment><Header/><ForgotPassword />   </React.Fragment>}/>
         <Route exact path="/password/reset/:token" element={ <React.Fragment><Header/><ResetPassword />   </React.Fragment>}/>
+        <Route exact path="/cart" element={ <React.Fragment><Header/><Cart />   </React.Fragment>}/>
+        <Route exact path="/shipping" element={ <React.Fragment><Header/><Shipping />   </React.Fragment>}/>
+
 
       </Routes>
   </Router>

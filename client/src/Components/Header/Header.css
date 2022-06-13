@@ -63,7 +63,21 @@ img.user__profilepic{
   width: 3vmax;
   border-radius: 25%;
 }
-
+.login__button,.logout__button{
+  border: none;
+    background-color: #00b3a8;
+    /* font: 400 1vmax "Roboto"; */
+    color: white;
+    text-decoration: none;
+    padding: 0.5vmax;
+    text-align: center;
+    transition: all 0.5s;
+    margin: 1vmax 0;
+    cursor: pointer;
+}
+.login__button:hover,.logout__button:hover{
+  background-color: #0f7c73;
+}
 
 @media screen and (max-width:600px) {
   .header{
