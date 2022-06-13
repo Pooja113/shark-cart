@@ -15,6 +15,7 @@ import Profile from './Components/User/Profile';
 import UpdateProfile from './Components/User/UpdateProfile';
 import UpdatePassword from './Components/User/UpdatePassword';
 import ForgotPassword from './Components/User/ForgotPassword';
+import ResetPassword from './Components/User/ResetPassword';
 
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route exact path="/me/update" element={ <React.Fragment><Header/><UpdateProfile />   </React.Fragment>}/>
         <Route exact path="/password/update" element={ <React.Fragment><Header/><UpdatePassword />   </React.Fragment>}/>
         <Route exact path="/password/forgot" element={ <React.Fragment><Header/><ForgotPassword />   </React.Fragment>}/>
+        <Route exact path="/password/reset/:token" element={ <React.Fragment><Header/><ResetPassword />   </React.Fragment>}/>
 
       </Routes>
   </Router>

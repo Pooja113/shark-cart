@@ -10,7 +10,7 @@ import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 
 
-const LoginSignUp = ({ history, location }) => {
+const LoginSignUp = ({ location }) => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -82,7 +82,7 @@ const LoginSignUp = ({ history, location }) => {
     if (isAuthenticated) {
       navigate("/account");
     }
-  }, [dispatch, error, alert, history, isAuthenticated,navigate]);
+  }, [dispatch, error, alert, isAuthenticated,navigate]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {
