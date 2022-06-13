@@ -1,18 +1,20 @@
 import React, { Fragment, useState, useEffect } from "react";
 import "./UpdatePassword.css";
-import Loader from "../layout/Loader/Loader";
+import Loader from "../Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, updatePassword } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import { UPDATE_PASSWORD_RESET } from "../../constants/userConstants";
-import MetaData from "../layout/MetaData";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
-import LockIcon from "@material-ui/icons/Lock";
-import VpnKeyIcon from "@material-ui/icons/VpnKey";
+import LockOpenIcon from "@mui/icons-material/LockOpen";
+import LockIcon from "@mui/icons-material/Lock";
+import VpnKeyIcon from "@mui/icons-material/VpnKey";
+import { useNavigate } from "react-router-dom";
+
 
 const UpdatePassword = ({ history }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
+  let navigate = useNavigate();
 
   const { error, isUpdated, loading } = useSelector((state) => state.profile);
 
@@ -41,13 +43,13 @@ const UpdatePassword = ({ history }) => {
     if (isUpdated) {
       alert.success("Profile Updated Successfully");
 
-      history.push("/account");
+      navigate("/account");
 
       dispatch({
         type: UPDATE_PASSWORD_RESET,
       });
     }
-  }, [dispatch, error, alert, history, isUpdated]);
+  }, [dispatch, error, alert, history, isUpdated,navigate]);
 
   return (
     <Fragment>
@@ -55,7 +57,6 @@ const UpdatePassword = ({ history }) => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title="Change Password" />
           <div className="updatePasswordContainer">
             <div className="updatePasswordBox">
               <h2 className="updatePasswordHeading">Update Profile</h2>

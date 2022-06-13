@@ -13,8 +13,8 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
  import {
 //   allUsersReducer,
-//   forgotPasswordReducer,
-//   profileReducer,
+   forgotPasswordReducer,
+   profileReducer,
 //   userDetailsReducer,
    userReducer,
 } from "./reducers/userReducer";
@@ -32,8 +32,8 @@ const reducer = combineReducers({
    products: productsReducer,
    productDetails: productDetailsReducer,
    user: userReducer,
-  // profile: profileReducer,
-  // forgotPassword: forgotPasswordReducer,
+   profile: profileReducer,
+   forgotPassword: forgotPasswordReducer,
   // cart: cartReducer,
   // newOrder: newOrderReducer,
   // myOrders: myOrdersReducer,

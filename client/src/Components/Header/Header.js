@@ -3,7 +3,6 @@ import './Header.css'
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import { auth } from './firebase';
 import { logout } from "../../actions/userAction";
 
 
