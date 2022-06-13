@@ -18,6 +18,7 @@ import ForgotPassword from './Components/User/ForgotPassword';
 import ResetPassword from './Components/User/ResetPassword';
 import Cart from './Components/Cart/Cart';
 import Shipping from './Components/Cart/Shipping';
+import ConfirmOrder from './Components/Cart/ConfirmOrder';
 
 function App() {
   useEffect(() => {
@@ -37,6 +38,7 @@ function App() {
         <Route exact path="/password/reset/:token" element={ <React.Fragment><Header/><ResetPassword />   </React.Fragment>}/>
         <Route exact path="/cart" element={ <React.Fragment><Header/><Cart />   </React.Fragment>}/>
         <Route exact path="/shipping" element={ <React.Fragment><Header/><Shipping />   </React.Fragment>}/>
+        <Route exact path="/order/confirm" element={ <React.Fragment><Header/><ConfirmOrder />   </React.Fragment>}/>
 
 
       </Routes>

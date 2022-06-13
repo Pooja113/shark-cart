@@ -1,7 +1,7 @@
 import React, { Fragment, useRef, useState, useEffect } from "react";
 import "./LoginSignUp.css";
 import Loader from "../Loader/Loader";
-import { Link, useNavigate  } from "react-router-dom";
+import { Link, useNavigate,useLocation   } from "react-router-dom";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import FaceIcon from "@mui/icons-material/Face";
@@ -10,7 +10,8 @@ import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 
 
-const LoginSignUp = ({ location }) => {
+const LoginSignUp = () => {
+  const location = useLocation();
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -70,9 +71,8 @@ const LoginSignUp = ({ location }) => {
       setUser({ ...user, [e.target.name]: e.target.value });
     }
   };
+  const redirect = location.search ? `/${location.search.split("=")[1]} `: "/account";
 
-  const redirect = window.location.href ? window.location.href.split("=")[1] : "/account";
-  console.log(window.location.href.split("=")[1])
   useEffect(() => {
     if (error) {
       alert.error(error);

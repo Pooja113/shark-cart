@@ -12,7 +12,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const handleAuthentication = () =>{
       dispatch(logout());
-      alert.success("Logout Successfully");
+      //alert.success("Logout Successfully");
   }
   return (
     <div className='header'>

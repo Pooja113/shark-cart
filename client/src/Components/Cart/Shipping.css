@@ -72,7 +72,7 @@
 }
 
 .shippingBtn:hover {
-  background-color: rgb(179, 66, 46);
+  background-color: #009488;
 }
 
 @media screen and (max-width: 600px) {
