@@ -1,25 +1,26 @@
 import React from 'react'
 import './Product.css'
-import ReactStars from "react-rating-stars-component";
 import { Link } from 'react-router-dom';
+import { Rating } from "@mui/material";
+
 
 
 const Product = ({product}) => {
-  const options = {
-    edit:false,
-    color:"rgba(20,20,20,0.1)",
-    activeColor:"#00b3a8",
-    size:window.innerWidth < 600 ? 20 : 25,
-    value:product.ratings,
-    isHalf:true
-  }
+
+const options = {
+    size: "medium",
+    value: product.ratings,
+    readOnly: true,
+    precision: 0.5,
+  };
+
   return (
     <div className='product'>
         <Link to={`/product/${product._id}`}>
           <img src={product.images[0].url} alt='' />
           <div className='product__info'>
             <p>{product.name}</p>
-            <ReactStars {...options} /><span>({product.numOfReviews} Reviews)</span>
+            <Rating {...options} /><span>({product.numOfReviews} Reviews)</span>
             <p className='product__price'>
               <small>₹</small>
               <strong>{product.price}</strong>

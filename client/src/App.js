@@ -6,7 +6,7 @@ import {
   Route
 } from "react-router-dom";
 import Home from './Components/Home/Home';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductDetails from './Components/Product/ProductDetails';
 import LoginSignUp from './Components/User/LoginSignUp';
 import store from "./store";
@@ -19,10 +19,29 @@ import ResetPassword from './Components/User/ResetPassword';
 import Cart from './Components/Cart/Cart';
 import Shipping from './Components/Cart/Shipping';
 import ConfirmOrder from './Components/Cart/ConfirmOrder';
+import axios from "axios";
+import Payment from './Components/Cart/Payment';
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import OrderSuccess from './Components/Cart/OrderSuccess';
+import MyOrders from './Components/Order/MyOrders';
+import OrderDetails from './Components/Order/OrderDetails';
+import Dashboard from './Components/Admin/Dashboard';
+import ProtectedRoute from './Components/Route/ProtectedRoute';
+
 
 function App() {
+  const [stripeApiKey, setStripeApiKey] = useState("");
+
+  async function getStripeApiKey() {
+    const { data } = await axios.get("/api/v1/stripeapikey");
+
+    setStripeApiKey(data.stripeApiKey);
+  }
+
   useEffect(() => {
     store.dispatch(loadUser());
+    getStripeApiKey();
 
   }, []);
   return (
@@ -39,7 +58,23 @@ function App() {
         <Route exact path="/cart" element={ <React.Fragment><Header/><Cart />   </React.Fragment>}/>
         <Route exact path="/shipping" element={ <React.Fragment><Header/><Shipping />   </React.Fragment>}/>
         <Route exact path="/order/confirm" element={ <React.Fragment><Header/><ConfirmOrder />   </React.Fragment>}/>
+        {stripeApiKey && (
+            <Route exact path="/process/payment" element={ <Elements stripe={loadStripe(stripeApiKey)}><Header/><Payment /></Elements >} />
+        )}
+        <Route exact path="/success" element={ <React.Fragment><Header/><OrderSuccess />   </React.Fragment>}/>
+        <Route exact path="/orders" element={ <React.Fragment><Header/><MyOrders />   </React.Fragment>}/>
+        <Route exact path="/order/:id" element={ <React.Fragment><Header/><OrderDetails />   </React.Fragment>}/>
+        
+        <Route exact path="/admin/dashboard" element={
+          <ProtectedRoute
+          isAdmin={true}
+          exact
+          path="/admin/dashboard"
+          component={Dashboard}
+        />
+        }/>
 
+     
 
       </Routes>
   </Router>

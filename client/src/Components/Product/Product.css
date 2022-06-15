@@ -24,6 +24,8 @@
 .product__info {
   margin-bottom: 15px;
   color: #131921;
+  display: flex;
+  flex-direction: column;
 }
 .product__info p{
   font-weight: bold;

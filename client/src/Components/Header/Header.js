@@ -28,9 +28,9 @@ const Header = () => {
           </div>
         </Link>
   
-        <Link to="/orders">
+        <Link to="/">
         <div className='header__option'>
-          <span className='header__optionLineTwo'>Orders</span>
+          <span className='header__optionLineTwo'>Products</span>
         </div>
         </Link>
         <Link to="/cart">

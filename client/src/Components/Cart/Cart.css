@@ -75,7 +75,7 @@
   width: 1vmax;
   text-align: center;
   outline: none;
-  /* font: 400 0.8vmax "Roboto"; */
+  font: 400 0.8vmax "Arial";
   color: rgba(0, 0, 0, 0.74);
 }
 
@@ -85,7 +85,7 @@
   height: 8vmax;
   align-items: center;
   box-sizing: border-box;
-  /* font: 300 1vmax cursive; */
+  font: 300 1vmax cursive;
   justify-content: flex-end;
   color: rgba(0, 0, 0, 0.753);
 }
@@ -100,7 +100,7 @@
   margin: 1vmax 4vmax;
   box-sizing: border-box;
   padding: 2vmax 0;
-  /* font: 300 1vmax "Roboto"; */
+  font: 300 1vmax "Arial";
   display: flex;
   justify-content: space-between;
 }
@@ -115,7 +115,7 @@
   border: none;
   padding: 0.8vmax 4vmax;
   width: 50%;
-  /* font: 300 0.8vmax "Roboto"; */
+  font: 300 0.8vmax "Arial";
   margin: 1vmax 4vmax;
   cursor: pointer;
   border-radius: 30px;
@@ -129,7 +129,7 @@
 
   .cartHeader {
     width: 100%;
-    /* font: 300 1.7vmax "Roboto"; */
+    /* font: 300 1.7vmax "Arial"; */
     grid-template-columns: 3fr 1fr 1fr;
   }
 

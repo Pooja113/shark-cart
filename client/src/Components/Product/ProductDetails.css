@@ -20,7 +20,7 @@
 }
 .detailsBlock-1 > h2 {
   color:#131921;
-  font: 600 2vmax "Roboto";
+  font: 600 2vmax "Arial";
 }
 
 .detailsBlock-1 > p {
@@ -128,7 +128,7 @@
 }
 
 
-/* .submitDialog {
+.submitDialog {
   display: flex;
   flex-direction: column;
 }
@@ -137,13 +137,13 @@
   margin: 1vmax 0;
   outline: none;
   padding: 1rem;
-  font: 300 1rem "Roboto";
-} */
+  font: 300 1rem "Arial";
+}
 
 
 .reviewsHeading {
   color: #000000be;
-  font: 500 1.4vmax "Roboto";
+  font: 500 1.4vmax "Arial";
   text-align: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.226);
   padding: 1vmax;
@@ -167,13 +167,14 @@
 }
 .reviewcomment {
   flex: 0.75;
+  
 }
 .review__userDetails > img {
   width: 5vmax;
 }
 .review__userDetails > p {
   color: rgba(0, 0, 0, 0.836);
-  font: 600 1vmax "Roboto";
+  font: 600 1vmax "Arial";
 }
 .reviewCardComment {
   color: rgba(0, 0, 0, 0.445);
@@ -231,11 +232,11 @@
   .detailsBlock-3-1-1 > input {
     padding: 1.5vmax;
     width: 3vmax;
-    font: 400 1.8vmax "Roboto";
+    font: 400 1.8vmax "Arial";
   }
 
   .detailsBlock-3-1 > button:last-child {
-    font: 500 1.7vmax "Roboto";
+    font: 500 1.7vmax "Arial";
     padding: 1.5vmax;
     width: 20vmax;
     margin: 3vmax 0;
@@ -244,7 +245,7 @@
   .detailsBlock-3 > p {
     padding: 2.5vmax 0;
     text-align: center;
-    font: 400 2vmax "Roboto";
+    font: 400 2vmax "Arial";
   }
 
   .detailsBlock-4 {
@@ -257,7 +258,7 @@
 
 
   .submitReview {
-    font: 500 1.7vmax "Roboto";
+    font: 500 1.7vmax "Arial";
     padding: 1.5vmax;
     width: 20vmax;
     margin: 3vmax 0;

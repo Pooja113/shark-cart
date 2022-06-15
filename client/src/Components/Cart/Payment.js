@@ -1,8 +1,7 @@
 import React, { Fragment, useEffect, useRef } from "react";
 import CheckoutSteps from "../Cart/CheckoutSteps";
 import { useSelector, useDispatch } from "react-redux";
-import MetaData from "../layout/MetaData";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import { useAlert } from "react-alert";
 import {
   CardNumberElement,
@@ -14,13 +13,16 @@ import {
 
 import axios from "axios";
 import "./payment.css";
-import CreditCardIcon from "@material-ui/icons/CreditCard";
-import EventIcon from "@material-ui/icons/Event";
-import VpnKeyIcon from "@material-ui/icons/VpnKey";
+import CreditCardIcon from "@mui/icons-material/CreditCard";
+import EventIcon from "@mui/icons-material/Event";
+import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import { createOrder, clearErrors } from "../../actions/orderAction";
+import { useNavigate  } from "react-router-dom";
 
-const Payment = ({ history }) => {
+
+const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
+  let navigate = useNavigate();
 
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -96,7 +98,7 @@ const Payment = ({ history }) => {
 
           dispatch(createOrder(order));
 
-          history.push("/success");
+          navigate("/success");
         } else {
           alert.error("There's some issue while processing payment ");
         }
@@ -116,7 +118,6 @@ const Payment = ({ history }) => {
 
   return (
     <Fragment>
-      <MetaData title="Payment" />
       <CheckoutSteps activeStep={2} />
       <div className="paymentContainer">
         <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
