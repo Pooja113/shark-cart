@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { DataGrid } from "@material-ui/data-grid";
+import { DataGrid } from "@mui/x-data-grid";
 import "./productReviews.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -8,17 +8,17 @@ import {
   deleteReviews,
 } from "../../actions/productAction";
 import { useAlert } from "react-alert";
-import { Button } from "@material-ui/core";
-import MetaData from "../layout/MetaData";
-import DeleteIcon from "@material-ui/icons/Delete";
-import Star from "@material-ui/icons/Star";
+import { Button } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import Star from "@mui/icons-material/Star";
+import { useNavigate } from "react-router-dom";
 
 import SideBar from "./Sidebar";
 import { DELETE_REVIEW_RESET } from "../../constants/productConstants";
 
-const ProductReviews = ({ history }) => {
+const ProductReviews = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const alert = useAlert();
 
   const { error: deleteError, isDeleted } = useSelector(
@@ -56,10 +56,10 @@ const ProductReviews = ({ history }) => {
 
     if (isDeleted) {
       alert.success("Review Deleted Successfully");
-      history.push("/admin/reviews");
+      navigate("/admin/reviews");
       dispatch({ type: DELETE_REVIEW_RESET });
     }
-  }, [dispatch, alert, error, deleteError, history, isDeleted, productId]);
+  }, [dispatch, alert, error, deleteError, navigate, isDeleted, productId]);
 
   const columns = [
     { field: "id", headerName: "Review ID", minWidth: 200, flex: 0.5 },
@@ -129,7 +129,6 @@ const ProductReviews = ({ history }) => {
 
   return (
     <Fragment>
-      <MetaData title={`ALL REVIEWS - Admin`} />
 
       <div className="dashboard">
         <SideBar />

@@ -9,10 +9,11 @@ import { logout } from "../../actions/userAction";
 const Header = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const { cartItems } = useSelector((state) => state.cart);
+
   const dispatch = useDispatch();
   const handleAuthentication = () =>{
       dispatch(logout());
-      //alert.success("Logout Successfully");
+      alert.success("Logout Successfully");
   }
   return (
     <div className='header'>
@@ -22,15 +23,20 @@ const Header = () => {
         </Link>
       </div>
       <div className='header__nav'>
-        <Link to="/">
+        <Link to="/admin/dashboard">
           <div className='header__option'>
             <img className='user__profilepic' src={user?.avatar?.url ? user?.avatar?.url : "/Profile.png"} alt="" />
           </div>
         </Link>
-  
+        
         <Link to="/">
         <div className='header__option'>
           <span className='header__optionLineTwo'>Products</span>
+        </div>
+        </Link>
+        <Link to="/orders">
+        <div className='header__option'>
+          <span className='header__optionLineTwo'>Orders</span>
         </div>
         </Link>
         <Link to="/cart">

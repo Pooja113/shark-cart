@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
-import MetaData from "../layout/MetaData";
-import { Link } from "react-router-dom";
-import { Typography } from "@material-ui/core";
+import { Link, useParams} from "react-router-dom";
+import { Typography } from "@mui/material";
 import SideBar from "./Sidebar";
 import {
   getOrderDetails,
@@ -9,17 +8,17 @@ import {
   updateOrder,
 } from "../../actions/orderAction";
 import { useSelector, useDispatch } from "react-redux";
-import Loader from "../layout/Loader/Loader";
+import Loader from "../Loader/Loader";
 import { useAlert } from "react-alert";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
-import { Button } from "@material-ui/core";
+import AccountTreeIcon from "@mui/icons-material/AccountTree";
+import { Button } from "@mui/material";
 import { UPDATE_ORDER_RESET } from "../../constants/orderConstants";
 import "./processOrder.css";
 
-const ProcessOrder = ({ history, match }) => {
+const ProcessOrder = ({ match }) => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
   const { error: updateError, isUpdated } = useSelector((state) => state.order);
-
+  const params = useParams();
   const updateOrderSubmitHandler = (e) => {
     e.preventDefault();
 
@@ -27,7 +26,7 @@ const ProcessOrder = ({ history, match }) => {
 
     myForm.set("status", status);
 
-    dispatch(updateOrder(match.params.id, myForm));
+    dispatch(updateOrder(params.id, myForm));
   };
 
   const dispatch = useDispatch();
@@ -49,12 +48,11 @@ const ProcessOrder = ({ history, match }) => {
       dispatch({ type: UPDATE_ORDER_RESET });
     }
 
-    dispatch(getOrderDetails(match.params.id));
-  }, [dispatch, alert, error, match.params.id, isUpdated, updateError]);
+    dispatch(getOrderDetails(params.id));
+  }, [dispatch, alert, error, params.id, isUpdated, updateError]);
 
   return (
     <Fragment>
-      <MetaData title="Process Order" />
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">

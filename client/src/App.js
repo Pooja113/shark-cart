@@ -28,6 +28,14 @@ import MyOrders from './Components/Order/MyOrders';
 import OrderDetails from './Components/Order/OrderDetails';
 import Dashboard from './Components/Admin/Dashboard';
 import ProtectedRoute from './Components/Route/ProtectedRoute';
+import ProductList from './Components/Admin/ProductList';
+import NewProduct from './Components/Admin/NewProduct';
+import UpdateProduct from './Components/Admin/UpdateProduct';
+import OrderList from './Components/Admin/OrderList';
+import ProcessOrder from './Components/Admin/ProcessOrder';
+import UpdateUser from './Components/Admin/UpdateUser';
+import UsersList from './Components/Admin/UsersList';
+import ProductReviews from './Components/Admin/ProductReviews';
 
 
 function App() {
@@ -55,26 +63,33 @@ function App() {
         <Route exact path="/password/update" element={ <React.Fragment><Header/><UpdatePassword />   </React.Fragment>}/>
         <Route exact path="/password/forgot" element={ <React.Fragment><Header/><ForgotPassword />   </React.Fragment>}/>
         <Route exact path="/password/reset/:token" element={ <React.Fragment><Header/><ResetPassword />   </React.Fragment>}/>
-        <Route exact path="/cart" element={ <React.Fragment><Header/><Cart />   </React.Fragment>}/>
-        <Route exact path="/shipping" element={ <React.Fragment><Header/><Shipping />   </React.Fragment>}/>
-        <Route exact path="/order/confirm" element={ <React.Fragment><Header/><ConfirmOrder />   </React.Fragment>}/>
+        <Route exact path="/cart" element={ <React.Fragment><Header/><Cart /></React.Fragment>}/>
+      
         {stripeApiKey && (
             <Route exact path="/process/payment" element={ <Elements stripe={loadStripe(stripeApiKey)}><Header/><Payment /></Elements >} />
         )}
-        <Route exact path="/success" element={ <React.Fragment><Header/><OrderSuccess />   </React.Fragment>}/>
-        <Route exact path="/orders" element={ <React.Fragment><Header/><MyOrders />   </React.Fragment>}/>
-        <Route exact path="/order/:id" element={ <React.Fragment><Header/><OrderDetails />   </React.Fragment>}/>
-        
-        <Route exact path="/admin/dashboard" element={
-          <ProtectedRoute
-          isAdmin={true}
-          exact
-          path="/admin/dashboard"
-          component={Dashboard}
-        />
+        <Route exact path='/' element={<ProtectedRoute />}>
+            <Route exact path="/shipping" element={ <React.Fragment><Header/><Shipping /></React.Fragment>}/>
+            <Route exact path="/order/confirm" element={ <React.Fragment><Header/><ConfirmOrder /></React.Fragment>}/>
+            <Route exact path="/success" element={ <React.Fragment><Header/><OrderSuccess /></React.Fragment>}/>
+            <Route exact path="/orders" element={ <React.Fragment><Header/><MyOrders /></React.Fragment>}/>
+            <Route exact path="/order/:id" element={ <React.Fragment><Header/><OrderDetails /></React.Fragment>}/>
+        </Route>
+        <Route exact path='/' element={<ProtectedRoute isAdmin={true}/>}>
+          <Route exact path='/admin/dashboard' element={<React.Fragment ><Header/><Dashboard /></React.Fragment>}/>
+          <Route exact path="/admin/products" element={<React.Fragment><Header/><ProductList /></React.Fragment>
         }/>
-
+        <Route exact path="/admin/product" element={<React.Fragment><Header/><NewProduct /> </React.Fragment>}/>
+        <Route exact path="/admin/product/:id" element={<React.Fragment><Header/><UpdateProduct /> </React.Fragment>}/>
+        <Route exact path="/admin/orders" element={<React.Fragment><Header/><OrderList /> </React.Fragment>}/>
+        <Route exact path="/admin/order/:id" element={<React.Fragment><Header/><ProcessOrder /> </React.Fragment>}/>
+        <Route exact path="/admin/users" element={<React.Fragment><Header/><UsersList /> </React.Fragment>}/>
+        <Route exact path="/admin/user/:id" element={<React.Fragment><Header/><UpdateUser /> </React.Fragment>}/>
+        <Route exact path="/admin/reviews" element={<React.Fragment><Header/><ProductReviews /> </React.Fragment>}/>
+        </Route>
      
+
+    
 
       </Routes>
   </Router>

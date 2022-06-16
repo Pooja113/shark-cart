@@ -21,6 +21,7 @@ import { useNavigate  } from "react-router-dom";
 
 
 const Payment = () => {
+  
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
   let navigate = useNavigate();
 
@@ -35,7 +36,7 @@ const Payment = () => {
   const { error } = useSelector((state) => state.newOrder);
 
   const paymentData = {
-    amount: Math.round(orderInfo.totalPrice * 100),
+    amount: Math.round(orderInfo?.totalPrice * 100),
   };
 
   const order = {

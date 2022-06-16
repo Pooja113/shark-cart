@@ -14,7 +14,7 @@
 .header__nav{
   display: flex;
   justify-content: space-evenly;
-  flex: 0.25;
+  flex: 0.35;
   align-items: center;
 }
 
