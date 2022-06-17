@@ -4,6 +4,7 @@
   width: 20vmax;
   background-color: white;
   z-index: 1;
+  margin-top: 0;
 }
 .product:hover{
   box-shadow: 20px 20px 25px rgba(25,25,25,0.5);

@@ -23,7 +23,7 @@
 }
 
 .profileContainer > div:first-child > img {
-  width: 20vmax;
+  /* width: 20vmax; */
   border-radius: 100%;
   transition: all 0.5s;
 }
@@ -125,5 +125,11 @@
     font: 400 1.8vmax "Roboto";
     padding: 1vmax;
     margin: 2vmax 0;
+  }
+  .profileContainer > div{
+    padding-top: 5vmax;
+  }
+  .profileContainer > div:first-child > img {
+    width: 10vmax;
   }
 }

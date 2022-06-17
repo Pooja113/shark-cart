@@ -36,6 +36,8 @@ import ProcessOrder from './Components/Admin/ProcessOrder';
 import UpdateUser from './Components/Admin/UpdateUser';
 import UsersList from './Components/Admin/UsersList';
 import ProductReviews from './Components/Admin/ProductReviews';
+import Search from './Components/Search/Search';
+import Products from './Components/Product/Products';
 
 
 function App() {
@@ -52,10 +54,14 @@ function App() {
     getStripeApiKey();
 
   }, []);
+ // window.addEventListener("contextmenu", (e) => e.preventDefault());
+
   return (
     <Router>
       <Routes>
         <Route exact path="/" element={ <React.Fragment><Header/> <Home /></React.Fragment>}/>
+        <Route exact path="/products" element={ <React.Fragment><Header/> <Products /></React.Fragment>}/>
+        <Route path="/products/:keyword" element={ <React.Fragment><Header/> <Products /></React.Fragment>}/>
         <Route exact path="/product/:id" element={ <React.Fragment><Header/> <ProductDetails /></React.Fragment>}/>
         <Route exact path="/login" element={ <React.Fragment><Header/> <LoginSignUp /></React.Fragment>}/>
         <Route exact path="/account" element={ <React.Fragment><Header/> <Profile />   </React.Fragment>}/>
@@ -88,6 +94,7 @@ function App() {
         <Route exact path="/admin/reviews" element={<React.Fragment><Header/><ProductReviews /> </React.Fragment>}/>
         </Route>
      
+        <Route exact path="/search" element={ <React.Fragment><Header/><Search /></React.Fragment>}/>
 
     
 

@@ -11,10 +11,11 @@
 .home__row{
   display: flex;
   z-index: 1;
-  margin-left: 5px;
+  /* margin-left: 5px;
   margin-right: 5px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
   justify-content: center;
+  width: 100%;
 }
 
 .home__image{
@@ -28,7 +29,7 @@
 .paginationBox {
   display: flex;
   justify-content: center;
-  margin: 6vmax;
+  margin: 4vmax;
 }
 
 .pagination {
@@ -40,7 +41,7 @@
   background-color: rgb(255, 255, 255);
   list-style: none;
   border: 1px solid rgba(0, 0, 0, 0.178);
-  padding: 1vmax 1.5vmax;
+  padding: 4px 15px;
   transition: all 0.3s;
   cursor: pointer;
 }

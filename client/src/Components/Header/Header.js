@@ -4,7 +4,7 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from "../../actions/userAction";
-
+import SearchIcon from '@mui/icons-material/Search';
 
 const Header = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -29,7 +29,7 @@ const Header = () => {
           </div>
         </Link>
         
-        <Link to="/">
+        <Link to="/products">
         <div className='header__option'>
           <span className='header__optionLineTwo'>Products</span>
         </div>
@@ -47,6 +47,13 @@ const Header = () => {
             </span>
           </div>
         </Link>
+        <Link to="/search">
+        <div className='header__optionBasket'>
+          <SearchIcon />
+          <span className='header__optionLoneTwo header__search' >
+          </span>
+        </div>
+      </Link>
         {isAuthenticated ? (<div className='logout__button' onClick={handleAuthentication}>LOGOUT</div>) : (
           <Link to="/login"><div className='login__button'>LOGIN</div></Link>
           )}

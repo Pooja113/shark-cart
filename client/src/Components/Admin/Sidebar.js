@@ -7,6 +7,7 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PeopleIcon from "@mui/icons-material/People";
 import RateReviewIcon from "@mui/icons-material/RateReview";
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 
 const Sidebar = () => {
   return (
@@ -39,6 +40,12 @@ const Sidebar = () => {
         <p>
           <RateReviewIcon />
           Reviews
+        </p>
+      </Link>
+      <Link to="/account">
+        <p>
+          <PersonAddAltIcon />
+          Profile
         </p>
       </Link>
     </div>

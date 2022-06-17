@@ -1,0 +1,53 @@
+.products__section {
+  flex: 0.75;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+
+.filterBox {
+  flex: 0.2;
+  background-color: #fff;
+  padding: 30px;
+}
+
+.filterBox > fieldset {
+  border: 1px solid rgba(0, 0, 0, 0.329);
+}
+
+.css-187mznn-MuiSlider-root{
+  color: #00b3a8 !important;
+  font-weight: bold;
+}
+
+.categoryBox {
+  padding: 0%;
+}
+
+.category-link {
+  list-style: none;
+  font: 400 1vmax "arial";
+  margin: 0.4vmax;
+  cursor: pointer;
+  transition: all 0.5s;
+  padding: 5px;
+}
+.category-link:hover {
+  color: #00b3a8;
+}
+
+
+@media screen and (max-width: 600px) {
+  .filterBox {
+    width: 15vmax;
+
+  }
+
+  .page-link {
+    font: 300 1.7vmax "Roboto";
+  }
+  .category-link {
+    font: 400 1.8vmax "Roboto";
+  }
+  }
