@@ -7,8 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
     "dev": "nodemon server/server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix --legacy-peer-deps client && npm run build --prefix client",
-    "build": "cd packages/react-scripts && node bin/react-scripts.js build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix --legacy-peer-deps client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
@@ -33,5 +32,9 @@
     "nodemailer": "^6.7.5",
     "stripe": "^9.8.0",
     "validator": "^13.7.0"
+  },
+  "engines": {
+    "node": "12.9.1",
+    "npm": "6.10.2" 
   }
 }
