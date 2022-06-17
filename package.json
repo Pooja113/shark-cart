@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
+  "engines": {
+    "node": "16.14.2",
+    "npm": "8.5.5" 
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
     "dev": "nodemon server/server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix --legacy-peer-deps client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix --legacy-peer-deps client && npm run build --prefix client && npm install --only=dev --no-shrinkwrap --prefix client"
   },
   "repository": {
     "type": "git",
@@ -32,9 +36,5 @@
     "nodemailer": "^6.7.5",
     "stripe": "^9.8.0",
     "validator": "^13.7.0"
-  },
-  "engines": {
-    "node": "16.14.2",
-    "npm": "8.5.5" 
   }
 }
